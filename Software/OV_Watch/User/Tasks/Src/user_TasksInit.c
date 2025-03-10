@@ -158,7 +158,6 @@ void User_Tasks_Init(void)
   /* add semaphores, ... */
 
   /* start timers, add new ones, ... */
-
   IdleTimerHandle = osTimerNew(IdleTimerCallback, osTimerPeriodic, NULL, NULL);
   osTimerStart(IdleTimerHandle, 100); // 100ms
 
