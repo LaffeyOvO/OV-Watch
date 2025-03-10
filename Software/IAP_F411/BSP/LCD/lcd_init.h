@@ -3,7 +3,7 @@
 
 #include "sys.h"
 
-#define USE_HORIZONTAL 0  //���ú�������������ʾ 0��1Ϊ���� 2��3Ϊ����
+#define USE_HORIZONTAL 0  //设置横屏或者竖屏显示 0或1为竖屏 2或3为横屏
 
 
 #if USE_HORIZONTAL==0||USE_HORIZONTAL==1
@@ -16,7 +16,7 @@
 #endif
 
 
-//-----------------LCD�˿ڶ���---------------- 
+//-----------------LCD端口定义---------------- 
 #define SCLK_PORT			GPIOB
 #define SCLK_PIN			GPIO_PIN_3
 
@@ -53,13 +53,13 @@
 #define LCD_BLK_Clr()  HAL_GPIO_WritePin(BLK_PORT,BLK_PIN,GPIO_PIN_RESET)//BLK
 #define LCD_BLK_Set()  HAL_GPIO_WritePin(BLK_PORT,BLK_PIN,GPIO_PIN_SET)
 
-void LCD_GPIO_Init(void);//��ʼ��GPIO
-void LCD_Writ_Bus(u8 dat);//ģ��SPIʱ��
-void LCD_WR_DATA8(u8 dat);//д��һ���ֽ�
-void LCD_WR_DATA(u16 dat);//д�������ֽ�
-void LCD_WR_REG(u8 dat);//д��һ��ָ��
-void LCD_Address_Set(u16 x1,u16 y1,u16 x2,u16 y2);//�������꺯��
-void LCD_Init(void);//LCD��ʼ��
+void LCD_GPIO_Init(void);//初始化GPIO
+void LCD_Writ_Bus(u8 dat);//模拟SPI时序
+void LCD_WR_DATA8(u8 dat);//写入一个字节
+void LCD_WR_DATA(u16 dat);//写入两个字节
+void LCD_WR_REG(u8 dat);//写入一个指令
+void LCD_Address_Set(u16 x1,u16 y1,u16 x2,u16 y2);//设置坐标函数
+void LCD_Init(void);//LCD初始化
 void LCD_Set_Light(uint8_t dc);
 void LCD_Close_Light(void);
 void LCD_ST7789_SleepIn(void);

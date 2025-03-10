@@ -3,14 +3,14 @@
 
 #include "stm32f4xx_hal.h"
 
-#define BAT_CHECK_PORT	GPIOA
-#define BAT_CHECK_PIN		GPIO_PIN_1
+#define BAT_CHECK_PORT GPIOA
+#define BAT_CHECK_PIN GPIO_PIN_1
 
-#define CHARGE_PORT			GPIOA
-#define CHARGE_PIN			GPIO_PIN_2
+#define CHARGE_PORT GPIOA
+#define CHARGE_PIN GPIO_PIN_2
 
-#define POWER_PORT			GPIOA
-#define POWER_PIN				GPIO_PIN_3
+#define POWER_PORT GPIOA
+#define POWER_PIN GPIO_PIN_3
 
 void Power_Pins_Init(void);
 void Power_Enable(void);

@@ -3,10 +3,9 @@
 
 #include "sys.h"
 
-#define USE_HORIZONTAL 0  //ÉèÖÃºáÆÁ»òÕßÊúÆÁÏÔÊ¾ 0»ò1ÎªÊúÆÁ 2»ò3ÎªºáÆÁ
+#define USE_HORIZONTAL 0 // ï¿½ï¿½ï¿½Ãºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ 0ï¿½ï¿½1Îªï¿½ï¿½ï¿½ï¿½ 2ï¿½ï¿½3Îªï¿½ï¿½ï¿½ï¿½
 
-
-#if USE_HORIZONTAL==0||USE_HORIZONTAL==1
+#if USE_HORIZONTAL == 0 || USE_HORIZONTAL == 1
 #define LCD_W 240
 #define LCD_H 280
 
@@ -15,58 +14,53 @@
 #define LCD_H 240
 #endif
 
+//-----------------LCDï¿½Ë¿Ú¶ï¿½ï¿½ï¿½----------------
+#define SCLK_PORT GPIOB
+#define SCLK_PIN GPIO_PIN_3
 
-//-----------------LCD¶Ë¿Ú¶¨Òå---------------- 
-#define SCLK_PORT			GPIOB
-#define SCLK_PIN			GPIO_PIN_3
+#define SDA_PORT GPIOB
+#define SDA_PIN GPIO_PIN_5
 
-#define SDA_PORT			GPIOB
-#define SDA_PIN				GPIO_PIN_5
+#define RES_PORT GPIOB
+#define RES_PIN GPIO_PIN_7
 
-#define RES_PORT			GPIOB
-#define RES_PIN				GPIO_PIN_7
+#define DC_PORT GPIOB
+#define DC_PIN GPIO_PIN_9
 
-#define DC_PORT				GPIOB
-#define DC_PIN				GPIO_PIN_9
+#define CS_PORT GPIOB
+#define CS_PIN GPIO_PIN_8
 
-#define CS_PORT				GPIOB
-#define CS_PIN				GPIO_PIN_8
+#define BLK_PORT GPIOB
+#define BLK_PIN GPIO_PIN_0
 
-#define BLK_PORT			GPIOB
-#define BLK_PIN				GPIO_PIN_0
+#define LCD_SCLK_Clr() HAL_GPIO_WritePin(SCLK_PORT, SCLK_PIN, GPIO_PIN_RESET) // SCL=SCLK
+#define LCD_SCLK_Set() HAL_GPIO_WritePin(SCLK_PORT, SCLK_PIN, GPIO_PIN_SET)
 
-#define LCD_SCLK_Clr() HAL_GPIO_WritePin(SCLK_PORT,SCLK_PIN,GPIO_PIN_RESET)//SCL=SCLK
-#define LCD_SCLK_Set() HAL_GPIO_WritePin(SCLK_PORT,SCLK_PIN,GPIO_PIN_SET)
+#define LCD_MOSI_Clr() HAL_GPIO_WritePin(SDA_PORT, SDA_PIN, GPIO_PIN_RESET) // SDA=MOSI
+#define LCD_MOSI_Set() HAL_GPIO_WritePin(SDA_PORT, SDA_PIN, GPIO_PIN_SET)
 
-#define LCD_MOSI_Clr() HAL_GPIO_WritePin(SDA_PORT,SDA_PIN,GPIO_PIN_RESET)//SDA=MOSI
-#define LCD_MOSI_Set() HAL_GPIO_WritePin(SDA_PORT,SDA_PIN,GPIO_PIN_SET)
+#define LCD_RES_Clr() HAL_GPIO_WritePin(RES_PORT, RES_PIN, GPIO_PIN_RESET) // RES
+#define LCD_RES_Set() HAL_GPIO_WritePin(RES_PORT, RES_PIN, GPIO_PIN_SET)
 
-#define LCD_RES_Clr()  HAL_GPIO_WritePin(RES_PORT,RES_PIN,GPIO_PIN_RESET)//RES
-#define LCD_RES_Set()  HAL_GPIO_WritePin(RES_PORT,RES_PIN,GPIO_PIN_SET)
+#define LCD_DC_Clr() HAL_GPIO_WritePin(DC_PORT, DC_PIN, GPIO_PIN_RESET) // DC
+#define LCD_DC_Set() HAL_GPIO_WritePin(DC_PORT, DC_PIN, GPIO_PIN_SET)
 
-#define LCD_DC_Clr()   HAL_GPIO_WritePin(DC_PORT,DC_PIN,GPIO_PIN_RESET)//DC
-#define LCD_DC_Set()   HAL_GPIO_WritePin(DC_PORT,DC_PIN,GPIO_PIN_SET)
- 		     
-#define LCD_CS_Clr()   HAL_GPIO_WritePin(CS_PORT,CS_PIN,GPIO_PIN_RESET)//CS
-#define LCD_CS_Set()   HAL_GPIO_WritePin(CS_PORT,CS_PIN,GPIO_PIN_SET)
+#define LCD_CS_Clr() HAL_GPIO_WritePin(CS_PORT, CS_PIN, GPIO_PIN_RESET) // CS
+#define LCD_CS_Set() HAL_GPIO_WritePin(CS_PORT, CS_PIN, GPIO_PIN_SET)
 
-#define LCD_BLK_Clr()  HAL_GPIO_WritePin(BLK_PORT,BLK_PIN,GPIO_PIN_RESET)//BLK
-#define LCD_BLK_Set()  HAL_GPIO_WritePin(BLK_PORT,BLK_PIN,GPIO_PIN_SET)
+#define LCD_BLK_Clr() HAL_GPIO_WritePin(BLK_PORT, BLK_PIN, GPIO_PIN_RESET) // BLK
+#define LCD_BLK_Set() HAL_GPIO_WritePin(BLK_PORT, BLK_PIN, GPIO_PIN_SET)
 
-void LCD_GPIO_Init(void);//³õÊ¼»¯GPIO
-void LCD_Writ_Bus(u8 dat);//Ä£ÄâSPIÊ±Ðò
-void LCD_WR_DATA8(u8 dat);//Ð´ÈëÒ»¸ö×Ö½Ú
-void LCD_WR_DATA(u16 dat);//Ð´ÈëÁ½¸ö×Ö½Ú
-void LCD_WR_REG(u8 dat);//Ð´ÈëÒ»¸öÖ¸Áî
-void LCD_Address_Set(u16 x1,u16 y1,u16 x2,u16 y2);//ÉèÖÃ×ø±êº¯Êý
-void LCD_Init(void);//LCD³õÊ¼»¯
+void LCD_GPIO_Init(void);                             // ï¿½ï¿½Ê¼ï¿½ï¿½GPIO
+void LCD_Writ_Bus(u8 dat);                            // Ä£ï¿½ï¿½SPIÊ±ï¿½ï¿½
+void LCD_WR_DATA8(u8 dat);                            // Ð´ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ö½ï¿½
+void LCD_WR_DATA(u16 dat);                            // Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö½ï¿½
+void LCD_WR_REG(u8 dat);                              // Ð´ï¿½ï¿½Ò»ï¿½ï¿½Ö¸ï¿½ï¿½
+void LCD_Address_Set(u16 x1, u16 y1, u16 x2, u16 y2); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½êº¯ï¿½ï¿½
+void LCD_Init(void);                                  // LCDï¿½ï¿½Ê¼ï¿½ï¿½
 void LCD_Set_Light(uint8_t dc);
 void LCD_Close_Light(void);
 void LCD_ST7789_SleepIn(void);
 void LCD_ST7789_SleepOut(void);
 void LCD_Open_Light(void);
 #endif
-
-
-
-

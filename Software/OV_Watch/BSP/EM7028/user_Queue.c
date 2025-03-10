@@ -1,8 +1,7 @@
 #include "user_Queue.h"
 
-
 // 初始化队列
-void initQueue(Queue *queue) 
+void initQueue(Queue *queue)
 {
     queue->front = 0;
     queue->rear = -1;
@@ -10,21 +9,21 @@ void initQueue(Queue *queue)
 }
 
 // 判断队列是否为空
-bool isQueueEmpty(Queue *queue) 
+bool isQueueEmpty(Queue *queue)
 {
     return queue->size == 0;
 }
 
 // 判断队列是否已满
-bool isQueueFull(Queue *queue) 
+bool isQueueFull(Queue *queue)
 {
     return queue->size == QUEUE_SIZE;
 }
 
 // 入队
-void enqueue(Queue *queue, unsigned long item) 
+void enqueue(Queue *queue, unsigned long item)
 {
-    if (isQueueFull(queue)) 
+    if (isQueueFull(queue))
     {
         printf("队列已满，无法入队！\n");
         return;
@@ -35,9 +34,9 @@ void enqueue(Queue *queue, unsigned long item)
 }
 
 // 出队
-uint32_t dequeue(Queue *queue) 
+uint32_t dequeue(Queue *queue)
 {
-    if (isQueueEmpty(queue)) 
+    if (isQueueEmpty(queue))
     {
         printf("队列为空，无法出队！\n");
         return 0;
@@ -47,4 +46,3 @@ uint32_t dequeue(Queue *queue)
     queue->size--;
     return item;
 }
-

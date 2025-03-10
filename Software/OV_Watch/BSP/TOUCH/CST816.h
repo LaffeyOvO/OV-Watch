@@ -7,7 +7,6 @@
 
 /* CST816 dev pin defination */
 
-
 #define TOUCH_RST_PIN GPIO_PIN_15
 #define TOUCH_INT_PIN GPIO_PIN_1
 #define TOUCH_RST_PORT GPIOA
@@ -18,32 +17,32 @@
 #define TOUCH_RST_1 HAL_GPIO_WritePin(TOUCH_RST_PORT, TOUCH_RST_PIN, GPIO_PIN_SET)
 
 /* 设备地址 */
-#define Device_Addr 	0x15
+#define Device_Addr 0x15
 
 /* 触摸屏寄存器 */
-#define GestureID 			0x01
-#define FingerNum 			0x02
-#define XposH 					0x03
-#define XposL 					0x04
-#define YposH 					0x05
-#define YposL 					0x06
-#define ChipID 					0xA7
-#define SleepMode				0xE5
-#define MotionMask 			0xEC
-#define IrqPluseWidth 	0xED
-#define NorScanPer 			0xEE
-#define MotionSlAngle 	0xEF
-#define LpAutoWakeTime 	0xF4
-#define LpScanTH 				0xF5
-#define LpScanWin 			0xF6
-#define LpScanFreq 			0xF7
-#define LpScanIdac 			0xF8
-#define AutoSleepTime 	0xF9
-#define IrqCtl 					0xFA
-#define AutoReset 			0xFB
-#define LongPressTime 	0xFC
-#define IOCtl 					0xFD
-#define DisAutoSleep 		0xFE
+#define GestureID 0x01
+#define FingerNum 0x02
+#define XposH 0x03
+#define XposL 0x04
+#define YposH 0x05
+#define YposL 0x06
+#define ChipID 0xA7
+#define SleepMode 0xE5
+#define MotionMask 0xEC
+#define IrqPluseWidth 0xED
+#define NorScanPer 0xEE
+#define MotionSlAngle 0xEF
+#define LpAutoWakeTime 0xF4
+#define LpScanTH 0xF5
+#define LpScanWin 0xF6
+#define LpScanFreq 0xF7
+#define LpScanIdac 0xF8
+#define AutoSleepTime 0xF9
+#define IrqCtl 0xFA
+#define AutoReset 0xFB
+#define LongPressTime 0xFC
+#define IOCtl 0xFD
+#define DisAutoSleep 0xFE
 
 /* 触摸屏坐标结构体 */
 typedef struct
@@ -55,34 +54,34 @@ typedef struct
 /* 手势ID识别选项 */
 typedef enum
 {
-	NOGESTURE = 	0x00,
-	DOWNGLIDE = 	0x01,
-	UPGLIDE = 		0x02,
-	LEFTGLIDE = 	0x03,
-	RIGHTGLIDE = 	0x04,
-	CLICK = 			0x05,
+	NOGESTURE = 0x00,
+	DOWNGLIDE = 0x01,
+	UPGLIDE = 0x02,
+	LEFTGLIDE = 0x03,
+	RIGHTGLIDE = 0x04,
+	CLICK = 0x05,
 	DOUBLECLICK = 0x0B,
-	LONGPRESS = 	0x0C,
+	LONGPRESS = 0x0C,
 } GestureID_TypeDef;
 
 /* 连续动作配置选项 */
 typedef enum
 {
-	M_DISABLE = 	0x00,
-	EnConLR = 		0x01,
-	EnConUD = 		0x02,
-	EnDClick = 		0x03,
+	M_DISABLE = 0x00,
+	EnConLR = 0x01,
+	EnConUD = 0x02,
+	EnDClick = 0x03,
 	M_ALLENABLE = 0x07,
 } MotionMask_TypeDef;
 
 /* 中断低脉冲发射方式选项 */
 typedef enum
 {
-	OnceWLP = 		0x00,
-	EnMotion = 		0x10,
-	EnChange = 		0x20,
-	EnTouch = 		0x40,
-	EnTest = 			0x80,
+	OnceWLP = 0x00,
+	EnMotion = 0x10,
+	EnChange = 0x20,
+	EnTouch = 0x40,
+	EnTest = 0x80,
 } IrqCtl_TypeDef;
 
 /* 触摸屏初始化相关函数 */

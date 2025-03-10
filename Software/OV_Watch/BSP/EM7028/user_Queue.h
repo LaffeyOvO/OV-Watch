@@ -6,7 +6,8 @@
 // 定义队列结构
 #define QUEUE_SIZE 7
 
-typedef struct {
+typedef struct
+{
     int8_t front;
     int8_t rear;
     int8_t size;

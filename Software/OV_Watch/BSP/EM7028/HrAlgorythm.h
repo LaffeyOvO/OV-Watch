@@ -5,7 +5,6 @@
 #include "user_Queue.h"
 
 void HR_AlgoInit(void);
-uint16_t HR_Calculate(uint16_t present_dat,uint32_t present_time);
-
+uint16_t HR_Calculate(uint16_t present_dat, uint32_t present_time);
 
 #endif

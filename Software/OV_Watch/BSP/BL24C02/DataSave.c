@@ -14,59 +14,55 @@ EEPROM Data description:
 
 *******************************************/
 
-
 void EEPROM_Init(void)
 {
 	BL24C02_Init();
 }
 
-
-//to check the Data is right and the EEPROM is working
+// to check the Data is right and the EEPROM is working
 uint8_t EEPROM_Check(void)
 {
 	uint8_t check_buff[2];
 	delay_ms(10);
-	BL24C02_Read(0,2,check_buff);
-	if(check_buff[0] == 0x55 && check_buff[1] == 0xAA)
+	BL24C02_Read(0, 2, check_buff);
+	if (check_buff[0] == 0x55 && check_buff[1] == 0xAA)
 	{
-		return 0;//check OK
+		return 0; // check OK
 	}
 	else
 	{
 		check_buff[0] = 0x55;
 		check_buff[1] = 0xAA;
 		delay_ms(10);
-		BL24C02_Write(0,2,check_buff);
-		memset(check_buff,0,2);
+		BL24C02_Write(0, 2, check_buff);
+		memset(check_buff, 0, 2);
 		delay_ms(10);
-		BL24C02_Read(0,2,check_buff);
-		if(check_buff[0] == 0x55 && check_buff[1] == 0xAA)
-			return 0;//check ok
+		BL24C02_Read(0, 2, check_buff);
+		if (check_buff[0] == 0x55 && check_buff[1] == 0xAA)
+			return 0; // check ok
 	}
-	return 1;//check erro
+	return 1; // check erro
 }
 
-
-//to Save the settings
+// to Save the settings
 uint8_t SettingSave(uint8_t *buf, uint8_t addr, uint8_t lenth)
 {
-	if(addr > 1 && !EEPROM_Check())
+	if (addr > 1 && !EEPROM_Check())
 	{
 		delay_ms(10);
-		BL24C02_Write(addr,lenth,buf);
+		BL24C02_Write(addr, lenth, buf);
 		return 0;
 	}
 	return 1;
 }
 
-
-//to Get the settings
+// to Get the settings
 uint8_t SettingGet(uint8_t *buf, uint8_t addr, uint8_t lenth)
 {
-	if(addr > 1 && !EEPROM_Check())
+	if (addr > 1 && !EEPROM_Check())
 	{
 		delay_ms(10);
-		BL24C02_Read(addr,lenth,buf);
+		BL24C02_Read(addr, lenth, buf);
 		return 0;
 	}
 	return 1;

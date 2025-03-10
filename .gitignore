@@ -1,0 +1,148 @@
+# Ignore MacOS file system related.
+
+# Ensure the following binary and mapping files 
+# are tracked by Git 
+# (even if they match other ignore rules)
+!*.map
+!*.hex
+!*.bin
+!*.uf2
+
+
+# Ignore macOS .DS_Store files
+**/*.DS_Store*
+
+# Ignore build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Dd]ebug_with_Libslirp/
+[Rr]elease/
+[Rr]eleases/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# CodeWarrior temporary files
+*.tdt
+CWSettingsWindows.stg
+
+# Executable Files
+/build/**
+
+
+
+# Visual Studio cache/options directory
+.vs/
+
+# Visual Studio Solution / project User Option files
+*.suo
+*.vcxproj.user
+
+# Python Tools for Visual Studio (PTVS)
+__pycache__/
+*.pyc
+
+# Ignore certificate files.
+*.pem
+*.crt
+
+# Ignore Visual Studio user files
+*.suo
+*.vcxproj.user
+
+# Atmel Studio user files
+*.atsuo
+
+
+
+**/Ignore_*/
+_ign*
+
+# Renesas IDE temporary files
+*.nav
+**/user_env.cmake
+**/default
+**/si
+**/.cache
+**/.clangd
+
+# keil project
+*.crf
+*.d
+*.o
+**/out/*.htm
+**/out/*.dep
+**/out/*.lst
+**/*.uvguix.*
+**/*.lst
+
+
+# hardware
+# Ignore Altium Designer generated files
+*.OutJob
+*.Rpt
+*.log
+*.PrjPCBStructure
+*.PrjPCBVariants
+*.SchDocPreview
+*.PCBDocPreview
+*.PrjPcbStructure
+*.PrjPcbVariants
+*.PrjPCB
+*.PrjFpgStructure
+*.PrjFpgVariants
+*.PrjFpg
+*.PrjIntLib
+*.PrjLib
+*.PrjSch
+*.PrjFpg
+*.SchDocPreview
+*.PCBDocPreview
+
+# Ignore project backups
+*.DbLibBackup
+*.SchLibBackup
+*.PCBLibBackup
+*.PrjPcbBackup
+*.SchDocBackup
+*.PCBDocBackup
+
+# Ignore auto-generated files
+*.cmp
+*.swp
+*.bak
+*.~*
+
+# Ignore temporary files
+*.tmp
+*.temp
+
+# Ignore history folder
+**/History/
+
+# Ignore simulation folder
+**/Simulation/
+
+# Ignore output folder
+**/Output/
+
+# Ignore preview folder
+**/Previews/
+
+# Ignore compiled project files
+*.prjpcbstate
+*.PrjPcbStructure
+*.PrjPcbVariants
+*.PrjFpgStructure
+*.PrjFpgVariants
+*.PrjIntLib
+*.PrjSch
+
+# Ignore Altium Designer temporary files
+*.cml
+*.log
+*.log1
+*.log2
+*.htm
+**/Ignore_*/

@@ -1,12 +1,12 @@
 #include "WDOG.h"
 #include "main.h"
 
-//WDOG_EN
-#define WDOG_EN_PORT	GPIOB
-#define WDOG_EN_PIN		GPIO_PIN_1
-//WDI
-#define WDI_PORT	GPIOB
-#define WDI_PIN		GPIO_PIN_2
+// WDOG_EN
+#define WDOG_EN_PORT GPIOB
+#define WDOG_EN_PIN GPIO_PIN_1
+// WDI
+#define WDI_PORT GPIOB
+#define WDI_PIN GPIO_PIN_2
 
 void WDOG_Port_Init(void)
 {
@@ -27,15 +27,15 @@ void WDOG_Port_Init(void)
 
 void WDOG_Enable(void)
 {
-  HAL_GPIO_WritePin(WDOG_EN_PORT,WDOG_EN_PIN,GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(WDOG_EN_PORT, WDOG_EN_PIN, GPIO_PIN_RESET);
 }
 
 void WDOG_Disnable(void)
 {
-  HAL_GPIO_WritePin(WDOG_EN_PORT,WDOG_EN_PIN,GPIO_PIN_SET);
+  HAL_GPIO_WritePin(WDOG_EN_PORT, WDOG_EN_PIN, GPIO_PIN_SET);
 }
 
 void WDOG_Feed(void)
 {
-  HAL_GPIO_TogglePin(WDI_PORT,WDI_PIN);
+  HAL_GPIO_TogglePin(WDI_PORT, WDI_PIN);
 }
